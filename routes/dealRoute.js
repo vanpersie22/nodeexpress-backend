@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage:storage})
 
-dealRouter.post("/add", upload.single("image"),addDeal)
+dealRouter.post("/add", upload.array("images", 4), addDeal); // Example with max 5 images
 dealRouter.get("/list", allDeals)
 dealRouter.post("/remove", removeDeal)
 
